@@ -5,27 +5,58 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ahorcado!</title>
+    <!--Favicon-->
+    <link rel="icon" href="resources/img/favicon.png">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!--Styles-->
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 
 <body>
-    
     <div class="container h-100 d-flex">
-        <div class="row h-75 m-auto w-100">
-            <div class="col-10 m-auto main h-100 p-5 d-flex flex-column align-items-center justify-content-center">
+        <div class="row m-auto w-100 flex-nowrap overflow-hidden cont">
+            <!--Main container-->
+            <div id="cont1"
+                class="col-12 m-auto p-5 d-flex flex-column align-items-center justify-content-center">
                 <h1>Bienvenido a ahorcado!</h1>
-                <img src="resources/img/1.png" alt="" class="m-4" id="img">
-                <div class="d-flex" id="espacios">
-                    
+                <p class="text-center my-4 fs-5">¿En qué consiste el juego? Tienes que ingresar una letra y tratar de
+                    adivinar una palabra aleatoria (puede contener tildes), tendrás 6 intentos, si fallas 6 veces,
+                    pierdes.</p>
+                <h3>¿Cómo te llamas?</h3>
+                <form class="d-flex my-4" id="inicioForm">
+                    <input class="text-center" type="text" id="nombre" placeholder="Ingresa tu nombre"
+                        autocomplete="off" autofocus required pattern="[A-Za-z]{1,20}" maxlength="20"
+                        title="Ingresa solo letras (Max. 20)">
+                    <button type="submit" class="btn btn-primary">Continuar</button>
+                </form>
+                <p class="mt-4 mb-0 mensaje p-4 py-2 oculto" id="mensaje1">.</p>
+            </div>
+
+            <!--Game container-->
+            <div id="cont2"
+                class="col-12 m-auto p-5 h-100 d-flex flex-column align-items-center justify-content-center position-relative">
+                <h1 id="mensajeNombre">Hey! No te saltes la primera parte :)</h1>
+                <img src="resources/img/1.png" alt="" id="img">
+                <div class="d-flex" id="espacios"></div>
+                <div class="d-flex">
+                    <input class="text-center" id="letra" type="text" placeholder="Ingrese letra a probar"
+                        autocomplete="off" maxlength="1">
+                    <button type="submit" class="btn btn-primary" id="comprobarLetraBtn">Intentar</button>
                 </div>
-                <input class="form-control" id="letra" type="text" placeholder="Ingrese letra a probar">
-                <button type="button" id="submit" class="btn btn-primary m-3">Intentar</button>
+                <p class="mt-4 mb-0 mensaje p-4 py-2 oculto" id="mensaje2">.</p>
+                <p class="position-absolute bottom-0 start-0 ms-3" id="ganados">Juegos ganados: 0</p>
+                <p class="position-absolute bottom-0 end-0 me-3" id="perdidos">Juegos perdidos: 0</p>
             </div>
         </div>
     </div>
 
+    <!--Scripts-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
